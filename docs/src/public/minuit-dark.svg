@@ -1,0 +1,9 @@
+<svg viewBox="34.3 44.8 147.7 42.699999999999996" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="gradient" x1="122.171" y1="109.614" x2="158.932" y2="109.614" gradientUnits="userSpaceOnUse" gradientTransform="translate(2.732 -42.65)">
+      <stop style="stop-color:#50a2ff" offset="0"/>
+      <stop style="stop-color:#c27aff" offset="1"/>
+    </linearGradient>
+  </defs>
+  <text x="32.755" y="86.035"><tspan style="font-family:sans-serif;font-size:50.8px;font-weight:500;fill:#fff">min<tspan style="fill:url(#gradient)">ui</tspan>t</tspan></text>
+</svg>

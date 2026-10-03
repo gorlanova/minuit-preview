@@ -1,0 +1,17 @@
+:root {
+  color-scheme: light dark;
+}
+
+.light,
+.light ::backdrop,
+[data-theme="light"],
+[data-theme="light"] ::backdrop {
+  color-scheme: light;
+}
+
+.dark,
+.dark ::backdrop,
+[data-theme="dark"],
+[data-theme="dark"] ::backdrop {
+  color-scheme: dark;
+}

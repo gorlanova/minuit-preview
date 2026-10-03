@@ -1,0 +1,161 @@
+:where(*),
+:where(*)::before,
+:where(*)::after {
+  box-sizing: border-box;
+  background-clip: padding-box;
+  margin: 0;
+  padding: 0;
+  line-height: calc(1em + 0.5rem); /* Provides consistent spacing on all font-sizes */
+}
+
+:where(*:not(:focus-visible)) {
+  outline-color: transparent; /* Hides the ring on non-keyboard focus */
+}
+
+:where(html, body) {
+  font-family: system-ui, sans-serif;
+  font-variant-numeric: tabular-nums; /* Provides consistent width on numbers */
+  -webkit-font-smoothing: antialiased; /* Improves font rendering on macOS browsers */
+}
+
+:where(body:has(dialog[open])) {
+  overflow: hidden; /* Prevents scrolling when a dialog is open */
+}
+
+/* ::: @NOTE: if your app container has a different id, update the selector here */
+:where(#app, #__nuxt) {
+  isolation: isolate;
+}
+
+:where(a, button, summary, label, input) {
+  cursor: pointer;
+  /* @TODO check that */
+}
+
+:where(a, area, button, [role="button"], input, label, select, summary, textarea) {
+  touch-action: manipulation;
+  /* @TODO check that */
+}
+
+:where(span, p, blockquote, h1, h2, h3, h4, h5, h6) {
+  overflow-wrap: break-word;
+  unicode-bidi: plaintext;
+}
+
+:where(img, audio, picture, video, canvas, svg, embed) {
+  display: block;
+  max-inline-size: 100%;
+}
+
+:where(blockquote, h1, h2, h3, h4, h5, h6) {
+  text-wrap: balance;
+}
+
+:where(input, button, textarea, select) {
+  font-family: inherit;
+  font-size: inherit;
+  /* @TODO check that */
+}
+
+:where(ul, ol, dl) {
+  list-style-type: none;
+}
+
+:where(span, p) {
+  text-wrap: pretty;
+}
+
+:where(dialog),
+:where(a:any-link) {
+  color: inherit;
+}
+
+:where(a:any-link:hover) {
+  text-decoration-thickness: 0.5px;
+}
+
+:where(pre) {
+  white-space: pre-wrap;
+}
+
+[hidden] {
+  /* Hides content even if future CSS enables another display value */
+  display: none !important;
+}
+
+@view-transition {
+  navigation: auto;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    interpolate-size: allow-keywords; /* Allows animations on inline-size and block-size changes */
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* @TODO: app styles */
+
+:where(.invisible) {
+  /* Hides content visually, leaves it accessible to screen readers */
+  position: absolute !important;
+  min-inline-size: 0 !important;
+  min-block-size: 0 !important;
+  inline-size: 1px !important;
+  block-size: 1px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  overflow: hidden !important;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap !important;
+  overflow-wrap: normal !important;
+  user-select: none !important;
+  -webkit-user-select: none !important;
+}
+
+:where(.ellipsis) {
+  overflow: hidden;
+  overflow-wrap: break-word;
+  display: -webkit-box;
+  line-clamp: 1;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+
+:where(body) {
+  background-color: var(--app-background, white);
+  color: var(--app-text, black);
+  accent-color: var(--primary-background, lightsteelblue);
+  font-family: var(--font-body);
+}
+
+:where(*:focus-visible) {
+  outline: 3px solid color-mix(in oklch, var(--app-ring, lightsteelblue) 50%, transparent);
+}
+
+:where(:autofill) {
+  background-color: color-mix(in oklch, var(--app-ring, lightsteelblue) 50%, transparent) !important;
+  box-shadow: 0 0 0 var(--size-8) color-mix(in oklch, var(--app-ring, lightsteelblue) 50%, transparent) inset !important;
+  background-clip: padding-box !important;
+}
+
+:where(mark) {
+  background-color: var(--app-background-active, lightsteelblue);
+  color: var(--app-text, black);
+}
+
+:where(::selection) {
+  background-color: var(--app-background-active, lightsteelblue);
+}
